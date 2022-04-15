@@ -10,8 +10,8 @@ async function hydrate() {
   // instead of `getPage()`, see https://vite-plugin-ssr.com/useClientRouter
   const pageContext = await getPage()
   const { Page, pageProps } = pageContext
-  const root = ReactDOM.createRoot(document.getElementById('page-view'))
-  root.render(
+  ReactDOM.hydrateRoot(
+    document.getElementById('page-view'),
     <PageShell pageContext={pageContext}>
       <Page {...pageProps} />
     </PageShell>
